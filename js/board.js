@@ -1,6 +1,5 @@
 const generateRow = function(lines) {
-  let row;
-  let elementName;
+  let row, elementName;
   for (var count = 0; count < lines; count++) {
     row = document.createElement("tr");
     row.id = count+1;
@@ -13,7 +12,6 @@ const generateRow = function(lines) {
 
 const generateCols = function(lines,row) {
   let col;
-  let elementName; countCols = 6;
   for (var count = 0; count < lines; count++) {
     col = document.createElement("td");
     row.appendChild(col);
