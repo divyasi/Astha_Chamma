@@ -28,17 +28,6 @@ const changeClass = function(id,className,value=''){
   document.getElementById(id).innerText = value;
 };
 
-const startGame = function(){
-  generateTable(5,5);
-  changeClass('3','safePlace');
-  changeClass('11','safePlace');
-  changeClass('13','home','home');
-  changeClass('15','safePlace');
-  changeClass('23','safePlace');
-  insertCoins(3,'player1');
-  insertCoins(23,'player2');
-};
-
 const insertCoins = function(id,player){
   let safePlace = document.getElementById(id);
   for(let count = 0; count < 4; count++){
@@ -48,6 +37,31 @@ const insertCoins = function(id,player){
   }
 };
 
+const printNumber = function(value) {
+  document.getElementById('slide').innerHTML = value;
+}
 
+const addListener = function() {
+  let slide = document.getElementById('slide')
+  slide.addEventListener('click',printNumber);
+}
 
-window.onload = startGame;
+const startGame = function(){
+  generateTable(5,5);
+  changeClass('3','safePlace');
+  changeClass('11','safePlace');
+  changeClass('13','home','home');
+  changeClass('15','safePlace');
+  changeClass('23','safePlace');
+  insertCoins(3,'player1');
+  insertCoins(23,'player2');
+  printNumber();
+};
+
+const loadGame = function() {
+  startGame();
+  printNumber();
+
+}
+
+window.onload = loadGame;
